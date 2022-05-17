@@ -1,3 +1,5 @@
 # spotify2youtube
 
-Quick and dirty notebook to transfer my Spotfy playlists over to YouTube music
+WIP script to transfer my spotify playlists to youtube music
+
+Might expand in the future. YMMV
