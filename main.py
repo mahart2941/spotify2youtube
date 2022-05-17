@@ -39,13 +39,16 @@ def main():
         video_id = parse_vid(song_results)
         if video_id:
             ids.append(video_id)
+
     logging.info(f'Found: {len(ids)} videoIds. Attempting to create playlist')
+
     # TODO what is max number ids we can send?
     response = yt.create_playlist(
         title=YOUTUBE_PLAYLIST_NAME,
         description=YOUTUBE_PLAYLIST_DESCRIPTION,
         video_ids=ids
     )
+
     logging.info(response)
 
 
