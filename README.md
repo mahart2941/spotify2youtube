@@ -34,12 +34,21 @@ And then install the dependencies:
 poetry install
 ```
 
+## Authentication
 Setup authentication to youtube and spotify
-1. Youtube: The script assumes you followed: https://ytmusicapi.readthedocs.io/en/latest/setup.html and created the headers_auth.json in this directory
-2. Spotify: The script assumes you've created environmental variables SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET generated from https://developer.spotify.com/dashboard/
+1. Youtube: The script assumes you followed: https://ytmusicapi.readthedocs.io/en/latest/setup.html and created the `headers_auth.json` in this directory
+2. Spotify: The script assumes you've created environmental variables `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET` generated from https://developer.spotify.com/dashboard/
 
-Make the desired changes to the variables SPOTIFY_PLAYLIST_ID, YOUTUBE_PLAYLIST_NAME, and YOUTUBE_PLAYLIST_DESCRIPTION
+## Run
 
+In main.py simply update the values for:
+1. SPOTIFY_PLAYLIST_ID
+2. YOUTUBE_PLAYLIST_NAME
+3. YOUTUBE_PLAYLIST_DESCRIPTION
+
+You can then run the script via poetry.
 
 ```bash
 poetry run python main.py
+
+Information will be logged to `info.log`
