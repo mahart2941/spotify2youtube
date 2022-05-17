@@ -6,22 +6,22 @@ from ytmusicapi import YTMusic
 from typing import List
 from utils import * # noqa
 
+# Fill in as needed
+SPOTIFY_PLAYLIST_ID = 'SPID'
+YOUTUBE_PLAYLIST_NAME = 'NAME'
+YOUTUBE_PLAYLIST_DESCRIPTION = 'DESC'
+
 # Assumes you've created environmental variables from https://developer.spotify.com/dashboard/
 CID = os.environ.get('SPOTIFY_CLIENT_ID')
 CS = os.environ.get('SPOTIFY_CLIENT_SECRET')
 
-auth_manager = SpotifyClientCredentials(client_id=CID,client_secret=CS)
-sp = spotipy.Spotify(auth_manager=auth_manager)
-
 # Assumes you followed: https://ytmusicapi.readthedocs.io/en/latest/setup.html
 yt = YTMusic('headers_auth.json')
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=CID,client_secret=CS))
 
+# logging
 logging.basicConfig(filename='info.log', filemode='w', format='%(levelname)s - %(message)s', level=logging.INFO)
 
-SPOTIFY_PLAYLIST_ID = '2iS9UxbzovWxLbpLvKvs8V'
-YOUTUBE_PLAYLIST_NAME = 'Sanch Test'
-YOUTUBE_PLAYLIST_DESCRIPTION = 'pog'
-YOUTUBE_PLAYLIST_ID = yt.create_playlist(YOUTUBE_PLAYLIST_NAME,YOUTUBE_PLAYLIST_DESCRIPTION)
 
 def main():
     ids = []
