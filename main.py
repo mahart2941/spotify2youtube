@@ -34,17 +34,13 @@ def main():
 
     for track in spotify_tracks:
         song_search_string = get_song_search_string(track)
-        # TODO determine if and when rate limiting occurs for
-        # hitting the search endpoint. Handle as needed.
-        # the limit parameter of the search function does not seem to work so
-        # slice the response
+        # TODO is rate limiting an issue?
         song_results = yt.search(query=song_search_string, filter='songs')[0:3]
         video_id = parse_vid(song_results)
         if video_id:
             ids.append(video_id)
     logging.info(f'Found: {len(ids)} videoIds. Attempting to create playlist')
-    # TODO determine what the max number of video_ids you can send to
-    # create/playlist endpoint at once.
+    # TODO what is max number ids we can send?
     response = yt.create_playlist(
         title=YOUTUBE_PLAYLIST_NAME,
         description=YOUTUBE_PLAYLIST_DESCRIPTION,
