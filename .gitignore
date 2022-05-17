@@ -130,3 +130,4 @@ dmypy.json
 
 headers_auth.json
 songs.log
+info.log
