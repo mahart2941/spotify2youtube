@@ -71,7 +71,7 @@ def get_spotify_tracks(spotify_client: spotipy.Spotify, spotify_id: str) -> List
     '''create a range for the number of requests it will take to get total
     tracks in a playlist. max requested tracks at a time is 100'''
     total_songs = spotify_client.playlist_items(spotify_id, fields='total')['total']
-    iteration_range = range(int(total_songs)/100 + 1)
+    iteration_range = range(int(total_songs/100) + 1)
     playlist_tracks = []
 
     offset = 0
@@ -83,9 +83,12 @@ def get_spotify_tracks(spotify_client: spotipy.Spotify, spotify_id: str) -> List
             spotify_id, fields='items.track.name, items.track.artists.name',
             offset=offset
         )['items']
+        
         '''"flatten" results so that each dict in the playlist tracks list
         just contains a dict with the keys: name, artists'''
         playlist_tracks.extend([track['track'] for track in current_tracks])
         offset += 100
+        
     logging.info(f'We found a total of: {len(playlist_tracks)} songs')
+    
     return playlist_tracks
