@@ -69,10 +69,3 @@ def get_spotify_tracks(spotify_client: spotipy.Spotify, spotify_id: str) -> List
         offset += 100
     logging.info(f'We found a total of: {len(playlist_tracks)} songs')
     return playlist_tracks
-
-
-# TODO: Add the option to batch add songs to help reduce rate limit threshold. Seems like 5 is the max number of id's to send at once
-def batch_add(song_list: list, batch_number: int=5) -> None:
-    if batch_number is not batch_add.__defaults__[0]:
-        batch_number = batch_number
-    return yt.add_playlist_items(YOUTUBE_PLAYLIST_ID, videoIds=song_list)
