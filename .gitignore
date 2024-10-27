@@ -128,7 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-headers_auth.json
+oauth.json
 songs.log
 info.log
 poetry.lock
