@@ -5,18 +5,18 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from ytmusicapi import YTMusic
 from utils import get_spotify_tracks, get_song_search_string, parse_vid
 
-# Fill in as needed foo
-SPOTIFY_PLAYLIST_ID = 'SPID'
-YOUTUBE_PLAYLIST_NAME = 'NAME'
-YOUTUBE_PLAYLIST_DESCRIPTION = 'DESC'
+# Fill in as needed
+SPOTIFY_PLAYLIST_ID = 'THEPLAYLISTID'
+YOUTUBE_PLAYLIST_NAME = 'THENEWPLAYLISTNAME'
+YOUTUBE_PLAYLIST_DESCRIPTION = 'Absolute bops'
 
 # Assumes you've created environmental variables from
 # https://developer.spotify.com/dashboard/
-CID = os.environ.get('SPOTIFY_CLIENT_ID')
-CS = os.environ.get('SPOTIFY_CLIENT_SECRET')
+CID = os.environ.get('SPOTIPY_CLIENT_ID')
+CS = os.environ.get('SPOTIPY_CLIENT_SECRET')
 
-# Assumes you followed: https://ytmusicapi.readthedocs.io/en/latest/setup.html
-yt = YTMusic('headers_auth.json')
+# Assumes you followed: https://ytmusicapi.readthedocs.io/en/stable/setup/oauth.html
+yt = YTMusic('oauth.json')
 manager = SpotifyClientCredentials(client_id=CID, client_secret=CS)
 sp = spotipy.Spotify(auth_manager=manager)
 
